@@ -17,7 +17,7 @@ import {
 
 const SearchBox = ({ refine }) => {
     const dispatch = useDispatch();
-    const { query, input } = useSelector(state => state.getQuery);
+    const { query } = useSelector(state => state.getQuery);
     const inputRef = useRef();
     return (
       
@@ -30,6 +30,8 @@ const SearchBox = ({ refine }) => {
                         dispatch(federatedSearchVisible(false));
                         dispatch(searchVisible(true));
                         dispatch(getQuery(query));
+                        StoreQueryToLocalStorage(query)
+                        
                     }}
                     autocomplete="off"
                 >
@@ -38,15 +40,13 @@ const SearchBox = ({ refine }) => {
                         ref={inputRef}
                         type="search"
                         value={query}
+                        onSubmit={() => {
+                            console.log('TEST')
+                        }}
                         onChange={event => {
-                            console.log(event.currentTarget.value);
                             dispatch(getQuery(event.currentTarget.value));
                             refine(event.currentTarget.value);
                         }}
-                        // onInput={event => {
-                        //     dispatch(getQuery(event.currentTarget.value))
-                        //     query ? refine(query) : refine(event.currentTarget.value)
-                        // }}
                         placeholder="Search..."
                         autoFocus="true"
                     />
@@ -71,8 +71,20 @@ const SearchBox = ({ refine }) => {
     );
 };
 
+const StoreQueryToLocalStorage = (query) => { 
+    
+        const oldSearchArray = localStorage.getItem('recentSearches');
+        const parsedArray = oldSearchArray ? JSON.parse(oldSearchArray) : [];
+        const allSearches = [...parsedArray, query]
+        const cleanArray = allSearches.filter(n => n)
+        let deduplicateSearches = [...new Set(cleanArray)];
+        localStorage.setItem('recentSearches', JSON.stringify(deduplicateSearches));
+    
+}
 
 
-const CustomSearchBox = connectSearchBox(SearchBox);
 
-export default CustomSearchBox;
+
+export const CustomSearchBox = connectSearchBox(SearchBox);
+
+

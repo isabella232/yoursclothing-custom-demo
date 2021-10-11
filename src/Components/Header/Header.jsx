@@ -2,9 +2,12 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // COMPONENT IMPORT
+
+import logo from '../../Assets/Images/logo.jpeg';
+import {CustomSearchBox} from '../Searchpage/SearchBox';
 import logo from "../../Assets/Images/logo.jpeg";
-import CustomSearchBox from "../Searchpage/SearchBox";
 import { VoiceSearch } from "react-instantsearch-dom";
+
 
 // import headerUp from '../../Assets/Images/headerUp.png';
 import SelectPersona from "./Persona";
