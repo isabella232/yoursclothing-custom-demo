@@ -65,7 +65,6 @@ const SearchBox = ({ refine }) => {
                         />
                     </svg>
                 </form>
-                <VoiceSearch searchAsYouSpeak={false} language={'en-US'} />
             </div>
           
         
