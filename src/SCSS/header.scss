@@ -1,0 +1,144 @@
+@import "../SCSS/variables.scss";
+
+.headerUp {
+    width: 100%;
+}
+
+.header-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .list-img-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li:last-child {
+            width: 6rem;
+        }
+
+        li {
+            margin: 0 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            font-size: 1rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: black;
+                height: 4px;
+                width: 100%;
+                bottom: -0.5rem;
+                transform-origin: 100% 0;
+                transform: scaleX(0);
+                transition: transform 0.4s;
+            }
+
+            &:hover::before {
+                transform-origin: 0 0;
+                transform: scaleX(1);
+            }
+            .design {
+                display: flex;
+                align-items: center;
+            }
+            .fa-palette {
+                margin-right: 0.2rem;
+            }
+        }
+        .promo {
+            color: $second-color;
+        }
+    }
+
+    .logo {
+        width: 18%;
+        cursor: pointer;
+    }
+
+    .search-wrapper {
+        // border-left: 1px solid $third-color;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .search-placeholder {
+            color: $main-color;
+            font-weight: 200;
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+       
+    }
+}
+
+// SEARCHBOX
+
+.searchBox-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+        margin: 1rem auto;
+        border-radius: 2px;
+        border: 1px solid $third-color;
+        padding: 0.6rem;
+        background-color: $third-color;
+        transition: 0.2s ease-in-out;
+
+        &:focus {
+            transition: 0.2s ease-in-out;
+            background-color: white;
+            outline: none;
+        }
+    }
+     svg {
+            width: 30px;
+            right: 1rem;
+            top: 1.2rem;
+            position: absolute;
+        }
+}
+
+// VOICESEARCH
+.voiceSearch-wrapper {
+    width: 100%;
+
+    .ais-VoiceSearch {
+        position: absolute;
+        right: 3rem;
+        top: 30%;
+        cursor: pointer;
+        .ais-VoiceSearch-button {
+            position: unset;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+    }
+}
+.ais-VoiceSearch-status {
+    display: none;
+}
+
+.stop-scrolling{
+    overflow: hidden;
+}

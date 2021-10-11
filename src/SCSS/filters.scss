@@ -1,0 +1,211 @@
+@import "./mixin.scss";
+@import "./variables.scss";
+
+// LEFT FILTERS
+
+.filters-content {
+    width: 100%;
+    .title {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3 {
+            @include title;
+        }
+    }
+    .filter-list-content {
+        width: 100%;
+        .filter-list {
+            width: 100%;
+            p {
+                font-size: 16px;
+            }
+            .button-filter {
+                @include btn;
+            }
+            .button-filter:hover {
+                @include btn-hover;
+            }
+        }
+    }
+    .line {
+        border-bottom: 1px solid $seventh-color;
+        width: 70%;
+        margin: 1em auto 1em auto;
+    }
+}
+
+.filterBtn {
+    display: -webkit-flex;
+    display: flex;
+    margin: -2.5rem 0;
+    cursor: pointer;
+    position: absolute;
+
+    :nth-child(1) {
+        margin-right: 0.5rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}
+
+// Current Refinement
+.refinement-content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    height: auto;
+    transform: translateX(0%);
+    transform: translateY(-5rem);
+    z-index: 999;
+    .refinement-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: -4em;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        a {
+            @include btn;
+        }
+        h3 {
+            @include title;
+        }
+        .refinement-results {
+            display: flex;
+            margin-left: 0.5rem;
+
+            li {
+                margin-left: 0.5rem;
+            }
+            .refinement-filter {
+                @include btn;
+                display: flex;
+                align-items: center;
+                span{
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.refined-filter{
+    // border: 2px solid $second-color !important;
+    font-weight: bold;
+    background: linear-gradient(163deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 26%, rgba(232,11,1,0.2007177871148459) 100%);
+    transition: 0.3s ease-in-out;
+}
+
+.clearRefinement-btn{
+    // border-bottom: 1px solid $second-color;
+    font-family: $main-font;
+    font-size: 0.8rem;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 1rem;
+    position: absolute;
+    font-style: italic;
+    z-index: 100;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: $second-color;
+        height: 1px;
+        width: 100%;
+        bottom: -0.5rem;
+        transform-origin: 100% 0;
+        transform: scaleX(0);
+        transition: transform 0.4s;
+    }
+
+    &:hover::before {
+        transform-origin: 0 0;
+        transform: scaleX(1);
+    }
+}
+
+.hideWrapperFilter {
+    animation: hideWrapper 0.3s forwards ease-in-out;
+}
+
+.showWrapperFilter {
+    animation: showWrapper 0.3s forwards ease-in-out;
+}
+
+.active-filters {
+    animation: fadeFilters 0.5s forwards ease-in-out;
+}
+
+.hidden-filters {
+    animation: fadeFiltersOut 0.5s forwards ease-in-out;
+}
+
+@keyframes hideWrapper {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(-100, 0, 0);
+        width: 0;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+}
+@keyframes showWrapper {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100, 0, 0);
+        width: 0;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        width: 20%;
+    }
+}
+
+@keyframes fadeFilters {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFiltersOut {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+    }
+}
+
+// Rheostat
+.DefaultBackground {
+    border: none !important;
+    background-color: $fourth-color !important;
+}
+
+.DefaultProgressBar_progressBar {
+    background-color: $seventh-color !important;
+}
+
+
