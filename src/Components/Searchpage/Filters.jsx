@@ -175,18 +175,18 @@ const CustomFilters = ({ filterAnim }) => {
     return (
         <div className={`filters-wrapper ${filterAnim ? "showWrapperFilter" : "hideWrapperFilter"}`}>
             <div>
-                {/* <CustomStateResults />
-                <ExperimentalDynamicWidgets
-                 // fallbackComponent={Menu}
-                 >
-                 <HierarchicalMenu attribute={window.hierarchicalCategoriesAttribute} />
+                <CustomStateResults />
+                {/* <ExperimentalDynamicWidgets
+                 fallbackComponent={Menu}
+                 > */}
+                 {/* <HierarchicalMenu attribute={window.hierarchicalCategoriesAttribute} /> */}
                 {window.refinementListAttributes.map((e) => 
                   (
                     <GenericRefinementList attribute={e}/>
                   )
                 )}
-                {window.priceAttribute !== '' && <GenericRangeSlider attribute={window.priceAttribute} min={10} max={550} />}
-                </ExperimentalDynamicWidgets> */}
+                {/* {window.priceAttribute !== '' && <GenericRangeSlider attribute={window.priceAttribute} min={10} max={550} />} */}
+                {/* </ExperimentalDynamicWidgets> */}
             </div>
         </div>
 

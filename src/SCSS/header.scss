@@ -110,7 +110,7 @@
             outline: none;
         }
     }
-     svg {
+     .search-svg {
             width: 30px;
             right: 1rem;
             top: 1.2rem;
@@ -132,6 +132,9 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
+            svg{
+                position:  relative !important;
+            }
         }
     }
 }
