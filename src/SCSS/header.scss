@@ -1,5 +1,10 @@
 @import "../SCSS/variables.scss";
 
+
+.header{
+    background-color: white;
+    padding: 1rem;
+}
 .headerUp {
     width: 100%;
 }
@@ -14,6 +19,31 @@
     .list-img-wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 30%;
+    }
+
+    .headerList{
+        width: 80%;
+    }
+
+    .header__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        img{
+            width: 40%;
+        }
+        h3{
+            margin-top: -1rem;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 400;
+        }
+        span{
+            color: #dd3b93;
+        }
     }
 
     ul {
@@ -67,7 +97,7 @@
 
     .search-wrapper {
         // border-left: 1px solid $third-color;
-        width: 40%;
+        width: 30%;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -99,14 +129,15 @@
         width: 100%;
         margin: 1rem auto;
         border-radius: 2px;
-        border: 1px solid $third-color;
+        border: none;
         padding: 0.6rem;
-        background-color: $third-color;
+        border-radius: 30px;
+        background-color: $eighth-color;
         transition: 0.2s ease-in-out;
 
         &:focus {
             transition: 0.2s ease-in-out;
-            background-color: white;
+            border: 1px solid $second-color;
             outline: none;
         }
     }
