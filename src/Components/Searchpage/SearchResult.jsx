@@ -183,10 +183,10 @@ const SortAndStat = () => {
                 value: window.index_asc,
                 label: 'Price Asc.'
             },
-            {
-                value: window.index_pop,
-                label: 'Popularity'
-            }
+            // {
+            //     value: window.index_pop,
+            //     label: 'Popularity'
+            // }
         ]}
     />
 </div>
