@@ -39,7 +39,7 @@ window.indexSugg = "yoursclothing_demo_query_suggestions";
 window.refinementListAttributes = ['availability','color','condition', 'material', 'size'];
 
 // ADD ATTRIBUTE FOR PRICE, IF NONE LEAVE AS EMPTY STRING
-window.priceAttribute = "";
+window.priceAttribute = "price";
 
 // ADD ATTRIBUTE FOR HIERARCHY, IF NONE LEAVE AS EMPTY STRING
 window.hierarchicalCategoriesAttribute = "categories";

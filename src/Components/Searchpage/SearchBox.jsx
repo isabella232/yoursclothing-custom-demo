@@ -50,7 +50,7 @@ const SearchBox = ({ refine }) => {
                         placeholder="Search..."
                         autoFocus="true"
                     />
-                    <svg
+                    <svg className="search-svg"
                         viewBox="0 0 897 897"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ const SearchBox = ({ refine }) => {
                         />
                     </svg>
                 </form>
-                {/* <VoiceSearch searchAsYouSpeak={false} language={'en-US'} /> */}
+                <VoiceSearch searchAsYouSpeak={false} language={'en-US'} />
             </div>
           
         
