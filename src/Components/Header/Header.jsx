@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // COMPONENT IMPORT
 import logo from '../../Assets/Images/logo.jpeg';
-import CustomSearchBox from '../Searchpage/SearchBox';
+import {CustomSearchBox} from '../Searchpage/SearchBox';
 
 // import headerUp from '../../Assets/Images/headerUp.png';
 import SelectPersona from './Persona';

@@ -2,8 +2,10 @@
 @import "./mixin.scss";
 
 .federatedSearch-wrapper {
-    display: grid;
-    grid-template-columns: 25% 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    // grid-template-columns: 15% 68% 15%;
 }
 
 .federatedSearch {
@@ -27,6 +29,7 @@
 }
 
 .federatedSearch-products {
+    width: 70%;
     .federated-title {
         margin-left: 3rem;
         margin-bottom: 1rem;
