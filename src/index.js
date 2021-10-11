@@ -21,11 +21,11 @@ const store = createStore(
 //CHANGE ME IF USING NEW INDEX
 window.appID = "RSBCBF0EG8";
 window.key = "05fcc691f3a833263d63a9b425e14176";
-window.index = "yoursclothing_demo";
+window.index = "yoursclothing_demo_price";
 
 //SORTBY
-window.index_asc = "yoursclothing_demo_price_asc";
-window.index_desc = "yoursclothing_demo_price_desc";
+window.index_asc = "yoursclothing_demo_price_price_asc";
+window.index_desc = "yoursclothing_demo_price_price_desc";
 
 // QUERY SUGG
 window.indexSugg = "yoursclothing_demo_query_suggestions";

@@ -10,6 +10,7 @@ import CustomSuggestions from '../Searchpage/Suggestions';
 
 
 
+
 const FederatedSearch = () => {
   
     return (
@@ -44,13 +45,15 @@ const RecentSearches = () => {
     const cleanSearches = JSON.parse(getSearches)
     if(cleanSearches){
     return (
-        <div>
-             <h3 className="federated-title">Recent Searches</h3>
-    {cleanSearches.map((search, index) => {
-        return(<p key={index}>{search}</p>)
-    })}
-    </div>
-    )
+        <>
+            <h3 className="federated-title">Recent Searches</h3>
+            <div className="federatedSearch-recentSearches_items">
+                {cleanSearches.map((search, index) => {
+                return (<p key={index}>{search}</p>)
+                })}
+            </div>
+        </>
+        )
     
     } 
     else {return ''}

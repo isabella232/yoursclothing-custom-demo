@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 import {CustomSearchBox} from '../Searchpage/SearchBox';
-import logo from "../../Assets/Images/logo.jpeg";
+import logo from "../../Assets/Images/logo.png";
+import headerList from "../../Assets/Images/headerList.png"
 import { VoiceSearch } from "react-instantsearch-dom";
 
 
@@ -44,6 +45,43 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-wrapper">
+      <div
+          className="search-wrapper"
+          onClick={(e) => {
+            console.log(e);
+            if (
+              // catMensSelector ||
+              // catKidsSelector ||
+              homepageSelector ||
+              catOneSelector ||
+              catTwoSelector
+            ) {
+              dispatch(federatedSearchVisible(true));
+            }
+            if (searchVisibleSelector) {
+              dispatch(federatedSearchVisible(false));
+            }
+          }}
+        >
+          <CustomSearchBox />
+          <VoiceSearch searchAsYouSpeak={false} language={"en-US"} />
+        </div>
+        <div className="header__logo">
+            <img
+                src={logo}
+                alt="logo"
+                className="logo"
+                onClick={() => {
+                dispatch(catOne(false));
+                dispatch(searchVisible(false));
+                dispatch(catTwo(false));
+                // dispatch(catMens(false))
+                // dispatch(catKids(false))
+                dispatch(federatedSearchVisible(false));
+                }}
+            />
+            <h3>27 years of <span>loving curves</span></h3>
+          </div>
         <div
           className="list-img-wrapper"
           onClick={() => {
@@ -51,20 +89,11 @@ const Header = () => {
             dispatch(getQuery(""));
           }}
         >
-          <img
-            src={logo}
-            alt="logo"
-            className="logo"
-            onClick={() => {
-              dispatch(catOne(false));
-              dispatch(searchVisible(false));
-              dispatch(catTwo(false));
-              // dispatch(catMens(false))
-              // dispatch(catKids(false))
-              dispatch(federatedSearchVisible(false));
-            }}
-          />
-          <ul>
+            <img className="headerList" src={headerList} alt="headerList" />
+        
+      
+         
+          {/* <ul>
             <li
               onClick={() => {
                 dispatch(catOne(true));
@@ -124,29 +153,10 @@ const Header = () => {
             <li>
               <SelectPersona />
             </li>
-          </ul>
+          </ul> */}
         </div>
-        <div
-          className="search-wrapper"
-          onClick={(e) => {
-            console.log(e);
-            if (
-              // catMensSelector ||
-              // catKidsSelector ||
-              homepageSelector ||
-              catOneSelector ||
-              catTwoSelector
-            ) {
-              dispatch(federatedSearchVisible(true));
-            }
-            if (searchVisibleSelector) {
-              dispatch(federatedSearchVisible(false));
-            }
-          }}
-        >
-          <CustomSearchBox />
-          <VoiceSearch searchAsYouSpeak={false} language={"en-US"} />
-        </div>
+   
+
       </div>
     </header>
   );

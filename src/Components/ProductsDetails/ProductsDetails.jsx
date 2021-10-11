@@ -8,7 +8,7 @@ import { Configure, InstantSearch } from 'react-instantsearch-dom';
 import { CustomHitsModal } from '../Searchpage/Hits'
 
 // IMPORT ASSETS
-import pdp from '../../Assets/Images/pdp.png'
+// import pdp from '../../Assets/Images/pdp.png'
 import { showModalPDP } from '../../actions/productDetail';
 
 
@@ -41,7 +41,7 @@ const ProductDetails = () => {
                             <p>{product.description}</p>
                             <p className="btn-modal">Buy me</p>
                         </div>
-                        <img src={pdp} alt="" />
+                        {/* <img src={pdp} alt="" /> */}
                     </div>
                 </div>
                 <div className="recommand-side">

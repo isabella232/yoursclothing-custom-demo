@@ -26,6 +26,7 @@ import CustomSuggestions from './Suggestions';
 import FederatedSearch from '../Federated Search/FederatedSearch';
 import { showModalPDP } from '../../actions/productDetail';
 import { federatedSearchVisible } from '../../actions/visibility';
+import footer from '../../Assets/Images/footer.png'
 
 // UNIQBY LIB
 import uniqBy from 'lodash.uniqby';
@@ -155,6 +156,9 @@ const SearchResults = () => {
                     <div className="pagination">
                         <Pagination />
                     </div>
+                </div>
+                <div className="footer">
+                    <img src={footer} alt="footer" />
                 </div>
             </div>
         </div>

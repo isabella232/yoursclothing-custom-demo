@@ -6,7 +6,7 @@ $third-color: #ae5058;
 $fourth-color: #eeeeee;
 $sixth-color: #1f1f24;
 $seventh-color: #0000;
-$eighth-color: #ffffff;
+$eighth-color: #eeeeee;
 
 // FONTS
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
@@ -17,6 +17,10 @@ $main-font: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: $main-color ;
 }
 
 h1,
@@ -38,4 +42,8 @@ ul {
   list-style: none;
   font-family: $main-font;
   color: $main-color;
+}
+
+.ais-Highlight, .ais-Highlight-nonHighlighted{
+  font-size: inherit;
 }
