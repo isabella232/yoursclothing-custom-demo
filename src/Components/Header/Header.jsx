@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // COMPONENT IMPORT
 
-import logo from '../../Assets/Images/logo.jpeg';
+
 import {CustomSearchBox} from '../Searchpage/SearchBox';
 import logo from "../../Assets/Images/logo.jpeg";
 import { VoiceSearch } from "react-instantsearch-dom";
