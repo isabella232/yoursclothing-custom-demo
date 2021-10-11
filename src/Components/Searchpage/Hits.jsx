@@ -48,7 +48,7 @@ const dispatch = useDispatch()
                                         hit={hit}
                                         attribute="title"
                                     /></h3>
-                                    <p>$ {hit.price}.00</p>
+                                    {/* <p>$ {hit.price.value}.00</p> */}
                                 </div>
                             </motion.li>
                         ))}
@@ -81,7 +81,7 @@ const HitsModal = ({ hits }) => {
                                 hit={hit}
                                 attribute="title"
                             /></h3>
-                            <p>$ {hit.price}.00</p>
+                            {/* <p>$ {hit.price}.00</p> */}
                         </div>
                     </li>
                 ))}

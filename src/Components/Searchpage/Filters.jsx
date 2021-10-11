@@ -175,7 +175,7 @@ const CustomFilters = ({ filterAnim }) => {
     return (
         <div className={`filters-wrapper ${filterAnim ? "showWrapperFilter" : "hideWrapperFilter"}`}>
             <div>
-                <CustomStateResults />
+                {/* <CustomStateResults />
                 <ExperimentalDynamicWidgets
                  // fallbackComponent={Menu}
                  >
@@ -186,7 +186,7 @@ const CustomFilters = ({ filterAnim }) => {
                   )
                 )}
                 {window.priceAttribute !== '' && <GenericRangeSlider attribute={window.priceAttribute} min={10} max={550} />}
-                </ExperimentalDynamicWidgets>
+                </ExperimentalDynamicWidgets> */}
             </div>
         </div>
 
