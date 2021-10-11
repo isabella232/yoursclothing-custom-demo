@@ -1,0 +1,86 @@
+// Mixins
+@import "./variables.scss";
+
+// BUTTONS
+
+@mixin btn {
+    border: 1px solid $seventh-color;
+    text-decoration: none;
+    color: $sixth-color;
+    width: 100%;
+    display: flex;
+    margin: 0.5rem 0;
+    padding: 0.8em;
+    font-size: 0.8rem;
+    background-color: $fourth-color;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+@mixin btn-hover {
+    transition: all 0.2s ease-in-out;
+    border: 1px solid $main-color;
+}
+
+// TITLE
+@mixin title {
+    font-size: 1rem;
+    color: $sixth-color;
+    text-transform: uppercase;
+}
+
+// HITS LIST (PARENT)
+@mixin hits-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+// HIT LIST (individual child)
+
+@mixin hit-list {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: $third-color solid 1px;
+    margin: 0.2rem;
+    padding: 1rem;
+    cursor: pointer;
+
+    .infos {
+        h3 {
+            font-size: 1rem;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        p {
+            font-size: 1rem;
+            font-weight: 200;
+        }
+    }
+
+    .image-wrapper {
+        width: 100%;
+
+        img {
+            width: 100%;
+            background-image: $third-color;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+        }
+    }
+}
+
+// CAROUSEL PARENTS
+@mixin carousel-wrapper {
+    flex-wrap: nowrap;
+    display: -webkit-box;
+    overflow-x: scroll;
+    padding: 1rem 0rem;
+    list-style-type: none;
+}
+

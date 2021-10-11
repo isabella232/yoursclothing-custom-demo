@@ -1,0 +1,163 @@
+@import "./mixin.scss";
+@import "./variables.scss";
+
+.modal-bg { 
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    animation: modalBG forwards 0.5s ease-in-out
+}
+
+.modal-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    height: 90vh;
+    width: 90vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow-y: scroll;
+    margin: 0 auto;
+
+    .modal-inner-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.modal-detail {
+    background-color: transparent;
+    // display: grid;
+    // grid-template-columns: 75% 25%;
+    display: flex;
+    padding: 2rem;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.fake-filters {
+    width: 60%;
+    img {
+        width: 100%;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    cursor: pointer;
+}
+
+.product-side {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.modal-images {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    img {
+        width: 90%;
+    }
+}
+
+.modal-infos {
+    margin-top: 3rem;
+    width: 80%;
+
+    h3,
+    p {
+        margin: 1rem 0;
+    }
+
+    .btn-modal {
+        @include btn;
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+
+        &:hover {
+            @include btn-hover;
+        }
+    }
+}
+
+.recommand-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-hits {
+    margin: 2rem;
+}
+
+.hits-list-modal {
+    @include carousel-wrapper;
+
+    li {
+        width: 250px !important;
+        // height: 200px;
+    }
+}
+
+.fadeModal {
+    animation: fadeModal 0.5s forwards ease-in-out;
+}
+
+.fadeOutModal {
+    animation: fadeOutModal 0.5s forwards ease-in-out;
+}
+
+@keyframes modalBG {
+    0%{
+       
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100%{
+        background-color: rgba(0, 0, 0, 0.2);
+       
+    }
+    
+}
+
+// @keyframes fadeModal {
+//     0% {
+//         opacity: 0;
+//         transform: translate3d(-50%, 0, -0%);
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: translate3d(-50%, -50%, -0%);
+//     }
+// }
+// @keyframes fadeOutModal {
+//     0% {
+//         opacity: 1;
+//         transform: translate3d(0rem, -50%, -50%);
+//     }
+//     100% {
+//         opacity: 0;
+//         transform: translate3d(0, 2rem, 0);
+//     }
+// }
