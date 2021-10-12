@@ -39,7 +39,9 @@ const FederatedSearch = () => {
           </Results>
         </div>
         <div className="federatedSearch-suggestions">
-          <h3>Suggestions</h3>
+          <ResultsTitle>
+            <h3>Suggestions</h3>
+          </ResultsTitle>
           <Index indexName={window.indexSugg} indexId="suggestions">
             <Configure hitsPerPage={6} userToken={persona} />
             <CustomSuggestions />
