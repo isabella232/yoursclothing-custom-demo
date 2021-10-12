@@ -211,9 +211,9 @@ const CustomFilters = ({ filterAnim }) => {
         >
           <HierarchicalMenu
             attributes={[
-              "categories.lvl0",
-              "categories.lvl1",
-              "categories.lvl2",
+              "categories[lvl0]",
+              "categories[lvl1]",
+              "categories[lvl2]",
             ]}
             title="Categories"
           />
