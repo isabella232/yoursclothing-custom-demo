@@ -7,7 +7,8 @@
     top: 0;
     left: 0;
     position: fixed;
-    animation: modalBG forwards 0.5s ease-in-out
+    animation: modalBG forwards 0.5s ease-in-out;
+    z-index: 999;
 }
 
 .modal-wrapper {
@@ -67,7 +68,7 @@
 
 .product-side {
     margin: 0 auto;
-    width: 80%;
+    width: 50%;
 }
 
 .modal-images {
