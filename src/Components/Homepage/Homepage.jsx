@@ -10,7 +10,7 @@ import img4 from '../../Assets/Images/img4.png';
 import rbVideo from '../../Assets/Videos/rbVideo.webm'
 import footer from '../../Assets/Images/footer.png';
 
-import {CarouselHome, CarouselHomeHalloween} from './Carousel';
+import {CarouselHome, CarouselHomeHalloween, CarouselTrendy} from './Carousel';
 
 
 const Homepage = () => {
@@ -30,6 +30,10 @@ const Homepage = () => {
             <div className="carouselHome">
                 <h2>...But also Halloween Celebration !</h2>
                 <CarouselHomeHalloween/>
+            </div>
+            <div className="carouselHome">
+                <h2>2022 Trends are here</h2>
+                <CarouselTrendy/>
             </div>
             <div>
                 <img src={img2} alt="home" />

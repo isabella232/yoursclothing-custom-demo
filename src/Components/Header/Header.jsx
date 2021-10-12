@@ -90,6 +90,7 @@ const Header = () => {
           }}
         >
             <img className="headerList" src={headerList} alt="headerList" />
+            <SelectPersona />
         
       
          
