@@ -32,28 +32,29 @@ const FederatedSearch = () => {
             <Configure hitsPerPage={6} userToken={persona} />
             <CustomSuggestions />
           </Index>
+          <QueryRuleCustomData>
+            {({ items }) => {
+              console.log("items", items);
+              return items.map(({ button, img, target, titleContent }) => {
+                console.log("titleContent", titleContent);
+                if (titleContent) {
+                  console.log("Je suis dans le if");
+                  return (
+                    <div>
+                      <div className="separator"></div>
+                      <div className="injected-content-wrapper">
+                        <img src={img} alt={titleContent} />
+                        <h3>{titleContent}</h3>
+                        <a href={target}>{button}</a>
+                      </div>
+                    </div>
+                  );
+                }
+              });
+            }}
+          </QueryRuleCustomData>
         </div>
       </div>
-
-      <QueryRuleCustomData>
-        {({ items }) => {
-          console.log("items", items);
-          return items.map(({ button, img, target, titleContent }) => {
-            if (titleContent) {
-              return (
-                <div>
-                  <div className="separator"></div>
-                  <div className="injected-content-wrapper">
-                    <img src={img} alt={titleContent} />
-                    <h3>{titleContent}</h3>
-                    <a href={target}>{button}</a>
-                  </div>
-                </div>
-              );
-            }
-          });
-        }}
-      </QueryRuleCustomData>
     </div>
   );
 };
