@@ -164,7 +164,7 @@ const CustomHits = connectHits(Hits);
 const CustomHitsModal = connectHits(HitsModal);
 
 const getRecommandations = (product) => {
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   console.log("RECOMMEND", product);
   if (!product) return "";
   const objectRecommendations = recommendations[product.objectID];
@@ -173,7 +173,8 @@ const getRecommandations = (product) => {
   for (const [id, score] of Object.entries(objectRecommendations)) {
     index
       .getObject(id)
-      .then((product) => console.log('PRODUCT', product));
+      .then((product) => console.log('PRODUCTS', product));
+    //   .then((product) => dispatch(showRecommendations({ product })));
   }
 };
 
