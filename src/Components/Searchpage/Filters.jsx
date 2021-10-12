@@ -181,9 +181,9 @@ const CustomFilters = ({ filterAnim }) => {
         <ExperimentalDynamicWidgets
         // fallbackComponent={Menu}
         >
-          {/* <HierarchicalMenu
+          <HierarchicalMenu
             attribute={window.hierarchicalCategoriesAttribute} title={window.hierarchicalCategoriesAttribute}
-          /> */}
+          />
           {window.refinementListAttributes.map((e) => (
             <GenericRefinementList attribute={e} title={e} />
           ))}
