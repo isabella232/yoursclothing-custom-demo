@@ -42,6 +42,7 @@ window.refinementListAttributes = [
   "condition",
   "material",
   "size",
+  "brand"
 ];
 
 // ADD ATTRIBUTE FOR PRICE, IF NONE LEAVE AS EMPTY STRING
@@ -49,9 +50,9 @@ window.priceAttribute = "price";
 
 // ADD ATTRIBUTE FOR HIERARCHY, IF NONE LEAVE AS EMPTY STRING
 window.hierarchicalCategoriesAttribute = [
-  "categories.lvl0",
-  "categories.lvl1",
-  "categories.lvl2",
+  'categories.lvl0',
+  'categories.lvl1',
+  'categories.lvl2',
 ];
 
 ReactDOM.render(
