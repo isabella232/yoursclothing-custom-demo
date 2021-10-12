@@ -48,7 +48,6 @@ const Header = () => {
       <div
           className="search-wrapper"
           onClick={(e) => {
-            console.log(e);
             if (
               // catMensSelector ||
               // catKidsSelector ||

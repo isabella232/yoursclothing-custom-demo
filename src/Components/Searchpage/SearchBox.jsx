@@ -41,7 +41,6 @@ const SearchBox = ({ refine }) => {
                         type="search"
                         value={query}
                         onSubmit={() => {
-                            console.log('TEST')
                         }}
                         onChange={event => {
                             dispatch(getQuery(event.currentTarget.value));
