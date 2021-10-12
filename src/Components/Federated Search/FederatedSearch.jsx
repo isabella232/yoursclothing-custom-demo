@@ -43,7 +43,8 @@ const FederatedSearch = () => {
 const RecentSearches = () => {
     const getSearches = localStorage.getItem('recentSearches')
     const cleanSearches = JSON.parse(getSearches)
-    if(cleanSearches){
+    console.log(cleanSearches)
+    if(cleanSearches.length > 0){
     return (
         <>
             <h3 className="federated-title">Recent Searches</h3>
