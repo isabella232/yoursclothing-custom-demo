@@ -52,7 +52,7 @@ const HeirarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
               {item.label}
             </a>
             {item.items && (
-              <HierarchicalMenu
+              <HeirarchicalCategoriesFilter
                 items={item.items}
                 refine={refine}
                 createURL={createURL}
