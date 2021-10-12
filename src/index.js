@@ -36,13 +36,23 @@ window.indexSugg = "yoursclothing_demo_query_suggestions";
 // If you don't see facet display, ask the internal dashboard team to make sure you have the favet ordering feature enabled
 
 // ADD ATTRIBUTES FOR REFINEMENT LISTS TO THE ARRAY, IF NONE LEAVE ARRAY EMPTY
-window.refinementListAttributes = ['availability','color','condition', 'material', 'size'];
+window.refinementListAttributes = [
+  "availability",
+  "color",
+  "condition",
+  "material",
+  "size",
+];
 
 // ADD ATTRIBUTE FOR PRICE, IF NONE LEAVE AS EMPTY STRING
 window.priceAttribute = "price";
 
 // ADD ATTRIBUTE FOR HIERARCHY, IF NONE LEAVE AS EMPTY STRING
-window.hierarchicalCategoriesAttribute = ["categories","categories.lvl1", "categories.lvl2"];
+window.hierarchicalCategoriesAttribute = [
+  "categories.lvl0",
+  "categories.lvl1",
+  "categories.lvl2",
+];
 
 ReactDOM.render(
   <Provider store={store}>
