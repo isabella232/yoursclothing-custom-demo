@@ -42,7 +42,7 @@ window.refinementListAttributes = ['availability','color','condition', 'size'];
 window.priceAttribute = "price";
 
 // ADD ATTRIBUTE FOR HIERARCHY, IF NONE LEAVE AS EMPTY STRING
-window.hierarchicalCategoriesAttribute = "categories";
+window.hierarchicalCategoriesAttribute = ["categories","categories.lvl1", "categories.lvl2"];
 
 ReactDOM.render(
   <Provider store={store}>
