@@ -62,14 +62,14 @@ const FederatedSearch = () => {
           <QueryRuleCustomData>
             {({ items }) => {
               console.log("items", items);
-              return items.map(({ button, img, target, title }) => {
-                if (title) {
+              return items.map(({ button, img, target, titleContent }) => {
+                if (titleContent) {
                   return (
                     <div>
                       <div className="separator"></div>
                       <div className="injected-content-wrapper">
-                        <img src={img} alt={title} />
-                        <h3>{title}</h3>
+                        <img src={img} alt={titleContent} />
+                        <h3>{titleContent}</h3>
                         <a href={target}>{button}</a>
                       </div>
                     </div>
