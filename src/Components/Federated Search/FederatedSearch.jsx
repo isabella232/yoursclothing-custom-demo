@@ -43,7 +43,6 @@ const FederatedSearch = () => {
 const RecentSearches = () => {
     const getSearches = localStorage.getItem('recentSearches')
     const cleanSearches = JSON.parse(getSearches)
-    console.log(cleanSearches)
     if(cleanSearches.length > 0){
     return (
         <>
