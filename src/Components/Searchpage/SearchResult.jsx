@@ -103,7 +103,7 @@ const SearchResults = () => {
                     <div className="searchPanel-results">
                     {catOne ?    (<Configure
                                 userToken={persona}
-                                filters="categorylvl3:'Sunglasses'"
+                                filters="categories.lvl1:'Clothing & Accessories > Accessories'"
                                 enablePersonalization={true}
                                 hitsPerPage={21}
                             />) : ('') }
