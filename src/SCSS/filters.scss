@@ -218,3 +218,10 @@
 .DefaultProgressBar_progressBar {
   background-color: $seventh-color !important;
 }
+
+
+// show hide Facet
+
+.search-facet__hidden{
+  visibility: hidden;
+}

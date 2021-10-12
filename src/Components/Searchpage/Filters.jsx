@@ -99,7 +99,7 @@ const RefinementList = ({ title, items, refine, searchForItems }) => {
       </div>
 
       <input
-        className="search-facet"
+        className={`${showfacet ? ("search-facet") : ("search-facet search-facet__hidden")}`}
         type="search"
         onChange={(event) => searchForItems(event.currentTarget.value)}
         placeholder="Search"
