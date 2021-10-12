@@ -6,18 +6,22 @@ import {
     SortBy,
     Stats,
     connectHits,
+    Index,
+    Configure
 } from 'react-instantsearch-dom';
 import { showModalPDP, productDetail } from '../../actions/productDetail';
 import { federatedSearchVisible, searchVisible } from '../../actions/visibility';
 import ProductDetails from '../ProductsDetails/ProductsDetails';
 
 import { motion, AnimateSharedLayout } from 'framer-motion';
+import { CarouselHomeHalloween } from '../Homepage/Carousel';
 
 
 
 
 // MAIN SEARCH RESULT PAGE + FEDERATED
 const Hits = ({ hits }) => {
+  
 const dispatch = useDispatch()
   const listItem = {
     hidden: { opacity: 0, y: 100 },
@@ -25,6 +29,24 @@ const dispatch = useDispatch()
         delay: 0.2
     } }
   };
+  const {query} = useSelector(state => state.getQuery)
+  console.log(hits)
+  console.log(hits.length)
+//   if(hits.length === 0){
+//       console.log('couc')
+//       return(
+//       <div>
+//           <p> Sorry there is nothing there for {query}</p>
+//           <p>You can check our last trends here</p>
+//           <div className="carousel_noResult">
+//             <Index indexName={window.index} indexId="Halloween">
+//             <Configure query={query}/>
+//                 <CarouselHomeHalloween/>
+//             </Index>
+//           </div>
+//       </div>
+// )
+//   }
     return (
         <AnimateSharedLayout>
             <div className="hits-wrapper">
@@ -96,6 +118,8 @@ const HitsModal = ({ hits }) => {
             </ul>
         </div>
     );
+
+    
 }
 
 const ModalProduct = () => {
