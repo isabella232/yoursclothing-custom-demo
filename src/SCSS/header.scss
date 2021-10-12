@@ -110,6 +110,19 @@
        
     }
 }
+.nav-links{
+    text-decoration: none;
+    color: #B5B5B5;
+    text-transform: uppercase;
+    font-family: $main-font;
+    cursor: pointer;
+}
+.nav-links:hover{
+    background-color: $second-color;
+    border-radius: 8px;
+    padding: 0.2em 0.1em;
+    color: $sixth-color;
+}
 
 // SEARCHBOX
 

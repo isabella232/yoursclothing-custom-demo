@@ -3,12 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // COMPONENT IMPORT
 
-
-import {CustomSearchBox} from '../Searchpage/SearchBox';
+import { CustomSearchBox } from "../Searchpage/SearchBox";
 import logo from "../../Assets/Images/logo.png";
-import headerList from "../../Assets/Images/headerList.png"
+import headerList from "../../Assets/Images/headerList.png";
 import { VoiceSearch } from "react-instantsearch-dom";
-
 
 // import headerUp from '../../Assets/Images/headerUp.png';
 import SelectPersona from "./Persona";
@@ -45,7 +43,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-wrapper">
-      <div
+        <div
           className="search-wrapper"
           onClick={(e) => {
             if (
@@ -65,22 +63,37 @@ const Header = () => {
           <CustomSearchBox />
           <VoiceSearch searchAsYouSpeak={false} language={"en-US"} />
         </div>
+        <a
+          className="nav-links"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log("EVENT");
+            dispatch(catOne(true));
+            dispatch(searchVisible(false));
+            dispatch(catTwo(false));
+            dispatch(federatedSearchVisible(false));
+          }}
+        >
+          ACCESSORIES
+        </a>
         <div className="header__logo">
-            <img
-                src={logo}
-                alt="logo"
-                className="logo"
-                onClick={() => {
-                dispatch(catOne(false));
-                dispatch(searchVisible(false));
-                dispatch(catTwo(false));
-                // dispatch(catMens(false))
-                // dispatch(catKids(false))
-                dispatch(federatedSearchVisible(false));
-                }}
-            />
-            <h3>27 years of <span>loving curves</span></h3>
-          </div>
+          <img
+            src={logo}
+            alt="logo"
+            className="logo"
+            onClick={() => {
+              dispatch(catOne(false));
+              dispatch(searchVisible(false));
+              dispatch(catTwo(false));
+              // dispatch(catMens(false))
+              // dispatch(catKids(false))
+              dispatch(federatedSearchVisible(false));
+            }}
+          />
+          <h3>
+            27 years of <span>loving curves</span>
+          </h3>
+        </div>
         <div
           className="list-img-wrapper"
           onClick={() => {
@@ -88,11 +101,9 @@ const Header = () => {
             dispatch(getQuery(""));
           }}
         >
-            <img className="headerList" src={headerList} alt="headerList" />
-            <SelectPersona />
-        
-      
-         
+          <img className="headerList" src={headerList} alt="headerList" />
+          <SelectPersona />
+
           {/* <ul>
             <li
               onClick={() => {
@@ -155,8 +166,6 @@ const Header = () => {
             </li>
           </ul> */}
         </div>
-   
-
       </div>
     </header>
   );

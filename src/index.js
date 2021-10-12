@@ -36,7 +36,7 @@ window.indexSugg = "yoursclothing_demo_query_suggestions";
 // If you don't see facet display, ask the internal dashboard team to make sure you have the favet ordering feature enabled
 
 // ADD ATTRIBUTES FOR REFINEMENT LISTS TO THE ARRAY, IF NONE LEAVE ARRAY EMPTY
-window.refinementListAttributes = ['availability','color','condition', 'material', 'size'];
+window.refinementListAttributes = ['availability','color','condition', 'size'];
 
 // ADD ATTRIBUTE FOR PRICE, IF NONE LEAVE AS EMPTY STRING
 window.priceAttribute = "price";
