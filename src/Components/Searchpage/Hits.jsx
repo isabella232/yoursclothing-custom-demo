@@ -29,9 +29,9 @@ const dispatch = useDispatch()
         delay: 0.2
     } }
   };
-  const {query} = useSelector(state => state.getQuery)
-  console.log(hits)
-  console.log(hits.length)
+//   const {query} = useSelector(state => state.getQuery)
+//   console.log(hits)
+//   console.log(hits.length)
 //   if(hits.length === 0){
 //       console.log('couc')
 //       return(
