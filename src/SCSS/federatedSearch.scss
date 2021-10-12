@@ -2,67 +2,86 @@
 @import "./mixin.scss";
 
 .federatedSearch-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    // grid-template-columns: 15% 68% 15%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  // grid-template-columns: 15% 68% 15%;
 }
 
 .federatedSearch {
-    width: 90vw;
-    height: 80vh;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 2rem;
-    margin: 0rem auto;
-    overflow-x: hidden;
+  width: 90vw;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin: 0rem auto;
+  overflow-x: hidden;
 
-    .searchBox-wrapper {
-        form {
-            width: 90%;
-        }
+  .searchBox-wrapper {
+    form {
+      width: 90%;
     }
+  }
 }
 
 .federatedSearch-products {
-    width: 70%;
-    .federated-title {
-        margin-left: 3rem;
-        margin-bottom: 1rem;
-    }
+  width: 70%;
+  .federated-title {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+  }
 }
 
-.federatedSearch-recentSearches_items{
-   margin-top: 1rem;
+.federatedSearch-recentSearches_items {
+  margin-top: 1rem;
 }
 
 .federatedSearch-suggestions {
-    .suggestions-container {
-        display: flex;
-        flex-direction: column;
+  .suggestions-container {
+    display: flex;
+    flex-direction: column;
 
-        .suggestion {
-            border: none;
-            padding: 0;
-            margin: 1rem 0;
+    .suggestion {
+      border: none;
+      padding: 0;
+      margin: 1rem 0;
 
-            p {
-                text-transform: lowercase;
-                font-size: 1.2rem;
-            }
-        }
+      p {
+        text-transform: lowercase;
+        font-size: 1.2rem;
+      }
     }
+  }
 }
 
 .container-federated {
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transform: translate(0%, 15%);
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translate(0%, 15%);
+}
+
+.injected-content-wrapper {
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+  }
+  h3 {
+    color: $third-color;
+  }
+  a {
+    @include btn;
+    text-decoration: none;
+    font-family: $main-font;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
 }
