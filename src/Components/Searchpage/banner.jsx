@@ -11,7 +11,7 @@ const QueryRuleCustomDatas = ({ items }) => {
         <div className="banner-overlay"></div>
         <div className="title-banner-wrapper">
           <h2>{title}</h2>
-          <div className="underline"></div>
+          {/* <div className="underline"></div> */}
         </div>
         <img src={img} alt="addBanner" />
       </div>

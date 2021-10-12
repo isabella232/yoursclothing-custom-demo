@@ -43,8 +43,15 @@
 
     h2 {
         z-index: 11;
-        color: $fourth-color;
+        // color: $fourth-color;
+        margin-top: 10%;
         font-size: 3rem;
+        background: #EEEEEE;
+        background: -webkit-linear-gradient(to right, #EEEEEE 70%, #DA419B 100%);
+        background: -moz-linear-gradient(to right, #EEEEEE 70%, #DA419B 100%);
+        background: linear-gradient(to right, #EEEEEE 70%, #DA419B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     img {
         width: 100%;
