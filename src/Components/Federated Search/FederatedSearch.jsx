@@ -2,12 +2,19 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // ALGOLIA IMPORT
-import { Configure, Index, QueryRuleCustomData,connectQueryRules } from "react-instantsearch-dom";
+import {
+  Configure,
+  Index,
+  QueryRuleCustomData,
+  connectQueryRules,
+  connectStateResults,
+} from "react-instantsearch-dom";
 
 // COMPONENT IMPORT
 import { CustomHits } from "../Searchpage/Hits";
 import { StoreQueryToLocalStorage } from "../Searchpage/SearchBox";
 import CustomSuggestions from "../Searchpage/Suggestions";
+import { CarouselHome } from "../Homepage/Carousel";
 
 const FederatedSearch = () => {
   const { persona } = useSelector((state) => state.selectedPersona);
@@ -15,18 +22,21 @@ const FederatedSearch = () => {
     <div className="federatedSearch">
       <div className="federatedSearch-wrapper">
         <div className="federatedSearch-recentSearches">
-          <RecentSearches />   
-          <ContentInjected/>
+          <RecentSearches />
+          <ContentInjected />
         </div>
-        
 
         <div className="federatedSearch-products">
           <div className="product-federated-header">
             {/* <CustomSearchBox /> */}
-            <h3 className="federated-title">Products</h3>
+            <ResultsTitle>
+              <h3 className="federated-title">Products</h3>
+            </ResultsTitle>
           </div>
           <Configure hitsPerPage={6} userToken={persona} />
-          <CustomHits />
+          <Results>
+            <CustomHits />
+          </Results>
         </div>
         <div className="federatedSearch-suggestions">
           <h3>Suggestions</h3>
@@ -34,9 +44,6 @@ const FederatedSearch = () => {
             <Configure hitsPerPage={6} userToken={persona} />
             <CustomSuggestions />
           </Index>
-
-
-       
         </div>
       </div>
     </div>
@@ -62,26 +69,41 @@ const RecentSearches = () => {
   }
 };
 
-const InjectedContent = ({items}) => {
-    return(
-   <div className="injectedContent__wrapper">  
-       {
-      items.map(({ button, img, target, titleContent }) => {
+const InjectedContent = ({ items }) => {
+  return (
+    <div className="injectedContent__wrapper">
+      {items.map(({ button, img, target, titleContent }) => {
         if (titleContent) {
           return (
-              <div className="injected-content">
-                <img src={img} alt={titleContent} />
-                <h3>{titleContent}</h3>
-                <a href={target}>{button}</a>
-              </div>          
+            <div className="injected-content">
+              <img src={img} alt={titleContent} />
+              <h3>{titleContent}</h3>
+              <a href={target}>{button}</a>
+            </div>
           );
         }
-     })
-    }
- </div>
-   ) }
-
+      })}
+    </div>
+  );
+};
 
 const ContentInjected = connectQueryRules(InjectedContent);
+
+const Results = connectStateResults(
+  ({ searchState, searchResults, children }) =>
+    searchResults && searchResults.nbHits !== 0 ? (
+      children
+    ) : (
+      <div className="no-results-hits">
+        <h3>NO RESULTS FOUND for {searchState.query}.</h3>
+        <p>You can look at our product suggestion below </p>
+        <CarouselHome />
+      </div>
+    )
+);
+
+const ResultsTitle = connectStateResults(({ searchResults, children }) =>
+  searchResults && searchResults.nbHits !== 0 ? children : ""
+);
 
 export default FederatedSearch;

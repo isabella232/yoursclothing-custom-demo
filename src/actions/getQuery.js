@@ -11,3 +11,10 @@ export const getInput = (value) => (dispatch) => {
         payload : value
     })
 }
+
+export const getResults = (value) => (dispatch) => {
+    dispatch({
+        type: 'GET_NO_RESULTS',
+        payload : value
+    })
+}
