@@ -64,7 +64,7 @@ const Header = () => {
           }}
         >
           <CustomSearchBox />
-          <VoiceSearch searchAsYouSpeak={false} language={"en-US"} />
+          <VoiceSearch searchAsYouSpeak={true} language={"en-US"} />
         </div>
         <div className="header__logo">
             <img
