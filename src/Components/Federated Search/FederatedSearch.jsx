@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // ALGOLIA IMPORT
-import { Configure, Index, QueryRuleCustomData } from "react-instantsearch-dom";
+import { Configure, Index, QueryRuleCustomData,connectQueryRules } from "react-instantsearch-dom";
 
 // COMPONENT IMPORT
 import { CustomHits } from "../Searchpage/Hits";
@@ -15,8 +15,10 @@ const FederatedSearch = () => {
     <div className="federatedSearch">
       <div className="federatedSearch-wrapper">
         <div className="federatedSearch-recentSearches">
-          <RecentSearches />
+          <RecentSearches />   
+          <ContentInjected/>
         </div>
+        
 
         <div className="federatedSearch-products">
           <div className="product-federated-header">
@@ -32,27 +34,9 @@ const FederatedSearch = () => {
             <Configure hitsPerPage={6} userToken={persona} />
             <CustomSuggestions />
           </Index>
-          <QueryRuleCustomData>
-            {({ items }) => {
-              console.log("items", items);
-              return items.map(({ button, img, target, titleContent }) => {
-                console.log("titleContent", titleContent);
-                if (titleContent) {
-                  console.log("Je suis dans le if");
-                  return (
-                    <div>
-                      <div className="separator"></div>
-                      <div className="injected-content-wrapper">
-                        <img src={img} alt={titleContent} />
-                        <h3>{titleContent}</h3>
-                        <a href={target}>{button}</a>
-                      </div>
-                    </div>
-                  );
-                }
-              });
-            }}
-          </QueryRuleCustomData>
+
+
+       
         </div>
       </div>
     </div>
@@ -77,5 +61,27 @@ const RecentSearches = () => {
     return "";
   }
 };
+
+const InjectedContent = ({items}) => {
+    return(
+   <div className="injectedContent__wrapper">  
+       {
+      items.map(({ button, img, target, titleContent }) => {
+        if (titleContent) {
+          return (
+              <div className="injected-content">
+                <img src={img} alt={titleContent} />
+                <h3>{titleContent}</h3>
+                <a href={target}>{button}</a>
+              </div>          
+          );
+        }
+     })
+    }
+ </div>
+   ) }
+
+
+const ContentInjected = connectQueryRules(InjectedContent);
 
 export default FederatedSearch;

@@ -67,11 +67,17 @@
   transform: translate(0%, 15%);
 }
 
-.injected-content-wrapper {
+.injectedContent__wrapper{
+    margin-top: 3rem;
+}
+
+.injected-content {
   img {
     width: 200px;
     height: 200px;
     border-radius: 8px;
+    object-fit: cover;
+    object-position: -3rem 0rem;
   }
   h3 {
     color: $third-color;
