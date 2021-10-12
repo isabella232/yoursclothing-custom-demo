@@ -75,14 +75,13 @@ const RefinementList = ({ title, items, refine, searchForItems }) => {
     <div className="filters-content">
       <div className="title">
         <h3>{title}</h3>
-        <p>-</p>
         <svg
           onClick={() => {
             console.log("JE CLICK");
             setshowfacet(!showfacet);
             console.log(showfacet);
           }}
-          className="search-svg"
+          className="search-facet-svg"
           viewBox="0 0 897 897"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
