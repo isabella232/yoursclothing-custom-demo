@@ -2,9 +2,7 @@ import React from "react";
 import { connectQueryRules } from "react-instantsearch-dom";
 
 const QueryRuleCustomDatas = ({ items }) => {
-  console.log("ITEMS", items);
   return items.map(({ title, img }) => {
-    console.log("Banner", title);
     if (!title) {
       return null;
     }

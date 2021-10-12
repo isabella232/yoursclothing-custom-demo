@@ -1,65 +1,78 @@
-import React from 'react';
+import React from "react";
 
 // ALGOLIA IMPORT
-import { Configure, Index } from 'react-instantsearch-dom';
+import { Configure, Index, QueryRuleCustomData } from "react-instantsearch-dom";
 
 // COMPONENT IMPORT
-import { CustomHits } from '../Searchpage/Hits';
-import { StoreQueryToLocalStorage } from '../Searchpage/SearchBox';
-import CustomSuggestions from '../Searchpage/Suggestions';
-
-
-
+import { CustomHits } from "../Searchpage/Hits";
+import { StoreQueryToLocalStorage } from "../Searchpage/SearchBox";
+import CustomSuggestions from "../Searchpage/Suggestions";
 
 const FederatedSearch = () => {
-  
-    return (
-        <div className="federatedSearch">
-            <div className="federatedSearch-wrapper">
-                <div className="federatedSearch-recentSearches">    
-                    <RecentSearches/>
-                </div>
-              
-                <div className="federatedSearch-products">
-                    <div className="product-federated-header">
-                        {/* <CustomSearchBox /> */}
-                        <h3 className="federated-title">Products</h3>
-                    </div>
-                    <Configure hitsPerPage={6} />
-                    <CustomHits />
-                </div>
-                <div className="federatedSearch-suggestions">
-                    <h3>Suggestions</h3>
-                    <Index indexName={window.indexSugg} indexId="suggestions">
-                    <Configure hitsPerPage={6} />
-                    <CustomSuggestions />
-                    </Index>
-                </div>
-            </div>
+  return (
+    <div className="federatedSearch">
+      <div className="federatedSearch-wrapper">
+        <div className="federatedSearch-recentSearches">
+          <RecentSearches />
         </div>
-    );
+
+        <div className="federatedSearch-products">
+          <div className="product-federated-header">
+            {/* <CustomSearchBox /> */}
+            <h3 className="federated-title">Products</h3>
+          </div>
+          <Configure hitsPerPage={6} />
+          <CustomHits />
+        </div>
+        <div className="federatedSearch-suggestions">
+          <h3>Suggestions</h3>
+          <Index indexName={window.indexSugg} indexId="suggestions">
+            <Configure hitsPerPage={6} />
+            <CustomSuggestions />
+          </Index>
+
+          <QueryRuleCustomData>
+            {({ items }) => {
+              console.log("items", items);
+              return items.map(({ button, img, target, title }) => {
+                if (title) {
+                  return (
+                    <div>
+                      <div className="separator"></div>
+                      <div className="injected-content-wrapper">
+                        <img src={img} alt={title} />
+                        <h3>{title}</h3>
+                        <a href={target}>{button}</a>
+                      </div>
+                    </div>
+                  );
+                }
+              });
+            }}
+          </QueryRuleCustomData>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const RecentSearches = () => {
-    const getSearches = localStorage.getItem('recentSearches')
-    const cleanSearches = JSON.parse(getSearches)
-    if(cleanSearches.length > 0){
+  const getSearches = localStorage.getItem("recentSearches");
+  const cleanSearches = JSON.parse(getSearches);
+  if (cleanSearches.length > 0) {
     return (
-        <>
-            <h3 className="federated-title">Recent Searches</h3>
-            <div className="federatedSearch-recentSearches_items">
-                {cleanSearches.map((search, index) => {
-                return (<p key={index}>{search}</p>)
-                })}
-            </div>
-        </>
-        )
-    
-    } 
-    else {return ''}
-}
-
+      <>
+        <h3 className="federated-title">Recent Searches</h3>
+        <div className="federatedSearch-recentSearches_items">
+          {cleanSearches.map((search, index) => {
+            return <p key={index}>{search}</p>;
+          })}
+        </div>
+      </>
+    );
+  } else {
+    return "";
+  }
+};
 
 export default FederatedSearch;
-
-
