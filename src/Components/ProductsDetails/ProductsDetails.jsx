@@ -7,6 +7,9 @@ import { Configure, InstantSearch } from "react-instantsearch-dom";
 // IMPORT COMPONENTS
 import { CustomHitsModal, CustomHitsTogether } from "../Searchpage/Hits";
 
+// Import Carousel Trendy
+import { CarouselTrendy } from "../Homepage/Carousel";
+
 // IMPORT ASSETS
 // import pdp from '../../Assets/Images/pdp.png'
 import { showModalPDP } from "../../actions/productDetail";
@@ -52,7 +55,7 @@ const ProductDetails = () => {
           </div>
           <div className="modal-hits">
             <Configure hitsPerPage={8} />
-            <CustomHitsModal />
+            <CarouselTrendy />
           </div>
           <div>
             <h3>Bought together</h3>
