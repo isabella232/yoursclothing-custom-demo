@@ -181,13 +181,13 @@ const RangeSlider = ({
           className="rheostat-marker rheostat-marker--large"
           style={{ left: 0 }}
         >
-          <div className="rheostat-value">{stateMin}</div>
+          <div className="rheostat-value">{stateMin} GBP</div>
         </div>
         <div
           className="rheostat-marker rheostat-marker--large"
           style={{ right: 0 }}
         >
-          <div className="rheostat-value">{stateMax}</div>
+          <div className="rheostat-value">{stateMax} GBP</div>
         </div>
       </Rheostat>
     </div>
@@ -221,8 +221,8 @@ const CustomFilters = ({ filterAnim }) => {
             <GenericRangeSlider
               attribute={window.priceAttribute}
               title="Price"
-              min={10}
-              max={550}
+              min={1}
+              max={100}
             />
           )}
         </ExperimentalDynamicWidgets>

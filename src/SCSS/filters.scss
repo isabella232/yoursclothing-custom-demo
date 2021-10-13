@@ -228,8 +228,39 @@
   background-color: $fourth-color !important;
 }
 
+.rheostat-value{
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-family: $main-font;
+  font-weight: 300;
+  font-size: 0.8rem;
+  width: 5rem;
+}
+
 .DefaultProgressBar_progressBar {
-  background-color: $seventh-color !important;
+  background-color: white !important;
+}
+
+.DefaultHandle_handle {
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  background-color: $third-color !important;
+}
+
+.DefaultProgressBar_background__horizontal {
+  height: 5px !important;
+  top: 3px !important;
+}
+
+
+
+.DefaultHandle_handle__horizontal {
+  margin-left: -12px;
+  top: -4px;
+  &::after, &::before{
+    content: '';
+    display: none !important;
+  }
 }
 
 
@@ -288,15 +319,4 @@
   }
 }
 
-.rheostat-value{
-  font-size: 1rem;
-  margin-top: 1em;
-  font-family: $main-font;
-  font-weight: 600;
-}
 
-.DefaultHandle_handle{
-  background-color: $third-color !important;
-  box-shadow: 0 2px 2px $second-color !important;
-  border-style: none !important;
-}
