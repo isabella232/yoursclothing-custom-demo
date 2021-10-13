@@ -1,13 +1,13 @@
 import React from "react";
 import { connectQueryRules } from "react-instantsearch-dom";
 
-const QueryRuleCustomDatas = ({ items }) => {
-  return items.map((index, { title, img }) => {
+const QueryRuleCustomDatas = ({ items }) => { 
+  return items.map(({ title, img }) => {
     if (!title) {
       return null;
-    }
+    } 
     return (
-      <div className="banner-wrapper" key={index}>
+      <div className="banner-wrapper" key={title}>
         <div className="banner-overlay"></div>
         <div className="title-banner-wrapper">
           <h2>{title}</h2>
