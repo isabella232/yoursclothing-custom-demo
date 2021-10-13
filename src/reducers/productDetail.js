@@ -1,7 +1,7 @@
 const initState = {
   product: {},
   showModal: null,
-  recommendations: {}
+  recommendations: []
 };
 
 const productDetail = (state = initState, action) => {
