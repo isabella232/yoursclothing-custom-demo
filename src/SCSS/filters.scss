@@ -287,3 +287,16 @@
     margin-left: 1rem
   }
 }
+
+.rheostat-value{
+  font-size: 1rem;
+  margin-top: 1em;
+  font-family: $main-font;
+  font-weight: 600;
+}
+
+.DefaultHandle_handle{
+  background-color: $third-color !important;
+  box-shadow: 0 2px 2px $second-color !important;
+  border-style: none !important;
+}
