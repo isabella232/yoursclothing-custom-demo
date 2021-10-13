@@ -8,7 +8,7 @@ import { Configure, InstantSearch } from "react-instantsearch-dom";
 import { CustomHitsModal, CustomHitsTogether } from "../Searchpage/Hits";
 
 // Import Carousel Trendy
-import { CarouselTrendy } from "../Homepage/Carousel";
+import { CarouselTrendy, CarouselHome } from "../Homepage/Carousel";
 
 // IMPORT ASSETS
 // import pdp from '../../Assets/Images/pdp.png'
@@ -61,13 +61,13 @@ const ProductDetails = () => {
             <h3>Bought together</h3>
           </div>
           <div className="modal-hits">
-            <InstantSearch
+            {/* <InstantSearch
               indexName={window.index_asc}
               searchClient={searchClient}
-            >
-              <Configure hitsPerPage={8} />
-              {recommendation ? <CustomHitsTogether /> : <CustomHitsModal />}
-            </InstantSearch>
+            > */}
+            <Configure hitsPerPage={8} />
+            {recommendation.length ? <CustomHitsTogether /> : <CarouselHome />}
+            {/* </InstantSearch> */}
           </div>
         </div>
       </div>
