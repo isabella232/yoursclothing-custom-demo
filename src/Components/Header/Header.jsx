@@ -40,9 +40,11 @@ const Header = () => {
   } else {
     document.body.classList.remove("stop-scrolling");
   }
+
   return (
     <header className="header">
       <div className="header-wrapper">
+          
         <div
           className="search-wrapper"
           onClick={(e) => {
@@ -61,13 +63,12 @@ const Header = () => {
           }}
         >
           <CustomSearchBox />
-          <VoiceSearch searchAsYouSpeak={true} language={"en-US"} />
+          <VoiceSearch language={"en-US"}  />
         </div>
         <a
           className="nav-links"
           onClick={(e) => {
             e.preventDefault();
-            console.log("EVENT");
             dispatch(catOne(true));
             dispatch(searchVisible(false));
             dispatch(catTwo(false));

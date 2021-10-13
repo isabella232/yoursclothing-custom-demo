@@ -12,7 +12,7 @@ import {
     SortBy,
     connectCurrentRefinements,
     InstantSearch,
-    ExperimentalDynamicWidgets
+    ExperimentalDynamicWidgets,
 } from 'react-instantsearch-dom';
 
 //COMPONENTS
