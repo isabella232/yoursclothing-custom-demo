@@ -4,6 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import algoliasearch from "algoliasearch/lite";
 import { Configure, InstantSearch } from "react-instantsearch-dom";
 
+// RECOMMEND 
+// Recommendation
+import recommendations from "../../recommendation/recommendationdemo_recommendations.json";
+import { showRecommendations } from "../../actions/productDetail";
+
+import { index } from "../../recommendation/client";
+
 // IMPORT COMPONENTS
 import { CustomHitsModal } from "../Searchpage/Hits";
 
@@ -16,6 +23,14 @@ const ProductDetails = () => {
   const searchClient = algoliasearch(window.appID, window.key);
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productDetail);
+
+  if (!product) return "";
+  const objectRecommendations = recommendations[product.objectID];
+  if (!objectRecommendations) return "";
+  for (const [id, score] of Object.entries(objectRecommendations)) {
+    index.getObject(id)
+         .then((product) => dispatch(showRecommendations({ product })));
+  }
 
   if (product) {
     return (
@@ -69,6 +84,8 @@ const ProductDetails = () => {
     );
   }
 };
+
+
 
 
 export default ProductDetails;

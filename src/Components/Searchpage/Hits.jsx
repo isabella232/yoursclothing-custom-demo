@@ -1,12 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-// Recommendation
-import recommendations from "../../recommendation/recommendationdemo_recommendations.json";
-import { showRecommendations } from "../../actions/productDetail";
-
-import { index } from "../../recommendation/client";
-
 import { Highlight, connectHits } from "react-instantsearch-dom";
 import { showModalPDP, productDetail } from "../../actions/productDetail";
 import {
@@ -64,7 +58,7 @@ const Hits = ({ hits }) => {
                 dispatch(showModalPDP(true));
                 dispatch(federatedSearchVisible(false));
                 dispatch(searchVisible(true));
-                getRecommandations(hit);
+                // getRecommandations(hit);
               }}
             >
               <div className="image-wrapper">
@@ -163,19 +157,5 @@ const ModalProduct = () => {
 const CustomHits = connectHits(Hits);
 const CustomHitsModal = connectHits(HitsModal);
 
-const getRecommandations = (product) => {
-  const dispatch = useDispatch();
-  console.log("RECOMMEND", product);
-  if (!product) return "";
-  const objectRecommendations = recommendations[product.objectID];
-  if (!objectRecommendations) return "";
-  console.log("objectRecommendations", objectRecommendations);
-  for (const [id, score] of Object.entries(objectRecommendations)) {
-    index
-      .getObject(id)
-      .then((product) => console.log('PRODUCTS', product));
-    //   .then((product) => dispatch(showRecommendations({ product })));
-  }
-};
 
 export { CustomHits, CustomHitsModal };
