@@ -61,7 +61,7 @@ const Header = () => {
           }}
         >
           <CustomSearchBox />
-          <VoiceSearch searchAsYouSpeak={false} language={"en-US"} />
+          <VoiceSearch searchAsYouSpeak={true} language={"en-US"} />
         </div>
         <a
           className="nav-links"
