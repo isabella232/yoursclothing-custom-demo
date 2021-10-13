@@ -54,7 +54,7 @@ const ProductDetails = () => {
         </div>
         <div className="recommand-side">
           <div>
-            <h3>Recommandations</h3>
+            <h3>Recommendations</h3>
           </div>
           <div className="modal-hits">
             <Configure hitsPerPage={8} />
