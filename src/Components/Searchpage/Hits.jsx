@@ -66,7 +66,6 @@ const Hits = ({ hits }) => {
                 dispatch(federatedSearchVisible(false));
                 dispatch(searchVisible(true));
                 const products = [];
-                dispatch(showRecommendations([]));
                 if (!hit) return "";
                 const objectRecommendations = recommendations[hit.objectID];
                 if (!objectRecommendations) return "";

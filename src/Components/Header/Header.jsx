@@ -20,6 +20,8 @@ import { getQuery } from "../../actions/getQuery";
 
 import { motion } from "framer-motion";
 
+import { showRecommendations } from "../../actions/productDetail";
+
 const Header = () => {
   const federatedSearchVisibleSelector = useSelector(
     (state) => state.visibility.federatedSearchVisible
@@ -88,6 +90,7 @@ const Header = () => {
               // dispatch(catMens(false))
               // dispatch(catKids(false))
               dispatch(federatedSearchVisible(false));
+              dispatch(showRecommendations([]));
             }}
           />
           <h3>
