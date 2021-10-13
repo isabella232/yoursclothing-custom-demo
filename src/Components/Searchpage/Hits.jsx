@@ -86,11 +86,7 @@ const Hits = ({ hits }) => {
                   <Highlight hit={hit} attribute="title" />
                 </h3>
                 <div className="price__wrapper">
-<<<<<<< HEAD
                   <p className="price">{hit.price} GBP</p>
-=======
-                  <p className="price">$ {hit.price} GBP</p>
->>>>>>> 65e35c7 (fix)
                 </div>
               </div>
             </motion.li>
