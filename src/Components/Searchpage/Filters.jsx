@@ -29,7 +29,7 @@ const HierarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
         className="title"
       >
         <h3>{title}</h3>
-        <p>-</p>
+        {/* <p>-</p> */}
       </div>
       <ul
         className={`filter-list-content ${
@@ -77,9 +77,7 @@ const RefinementList = ({ title, items, refine, searchForItems }) => {
         <h3>{title}</h3>
         <svg
           onClick={() => {
-            console.log("JE CLICK");
             setshowfacet(!showfacet);
-            console.log(showfacet);
           }}
           className="search-facet-svg"
           viewBox="0 0 897 897"
@@ -96,15 +94,16 @@ const RefinementList = ({ title, items, refine, searchForItems }) => {
           />
         </svg>
       </div>
-
-      <input
-        className={`${
-          showfacet ? "search-facet" : "search-facet search-facet__hidden"
-        }`}
-        type="search"
-        onChange={(event) => searchForItems(event.currentTarget.value)}
-        placeholder="Search"
-      />
+      <div className="filter-list">
+        <input
+          className={`${
+            showfacet ? "search-facet" : "search-facet search-facet__hidden"
+          }`}
+          type="search"
+          onChange={(event) => searchForItems(event.currentTarget.value)}
+          placeholder="Search"
+        />
+      </div>
 
       <ul className="filter-list-content">
         {items.map((item) => (
@@ -214,6 +213,7 @@ const CustomFilters = ({ filterAnim }) => {
           <HierarchicalMenu
             attributes={window.hierarchicalCategoriesAttribute}
             title="Categories"
+            searchable
           />
           {window.refinementListAttributes.map((e) => (
             <GenericRefinementList attribute={e} title={e} searchable />

@@ -262,13 +262,20 @@ const CurrentRefinements = ({ items, refine }) => {
                         </React.Fragment>
                     ) : (
                         <button
+                            className="refinement-filter"
                             href="#"
                             onClick={event => {
                                 event.preventDefault();
                                 refine(item.value);
                             }}
                         >
-                            {item.label}
+                            {item.label.split(":")[1]}
+                            <span
+                            onClick={() => {
+                                refine(item.value);
+                            }}>
+                            X
+                            </span>
                         </button>
                     )}
                 </li>

@@ -25,11 +25,26 @@
         font-size: 16px;
       }
       .button-filter {
-        @include btn;
+        text-decoration: none;
+        border: 1px solid white;
+        text-transform: capitalize;
+        color: $sixth-color;
+        width: 100%;
+        display: flex;
+        margin: 0.5rem 0;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 300;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        border-radius: 30px;
+        background-color: white;
+        font-family: $main-font;
+        &:hover{
+          border: 1px solid $third-color;
+        }
       }
-      .button-filter:hover {
-        @include btn-hover;
-      }
+      
     }
   }
   .line {
@@ -73,6 +88,7 @@
     justify-content: center;
     position: relative;
     cursor: pointer;
+    margin: 0 0.5rem;
     a {
       @include btn;
     }
@@ -217,8 +233,57 @@
 }
 
 
-// show hide Facet
+// Search whithin Facet
+
+
+.search-facet-svg {
+  width: 30px;
+  right: 1rem;
+  top: 0;
+  position: relative;
+}
+
+.search-facet {
+  text-decoration: none;
+  border: 1px solid white;
+  text-transform: capitalize;
+  color: $sixth-color;
+  width: 100%;
+  display: flex;
+  margin: 1rem 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: white;
+  position: relative;
+  &:focus{
+    outline: none
+  }
+  &:hover{
+    border: 1px solid $third-color;
+  }
+  &::placeholder{
+    font-size: 0.8rem;
+    position: relative;
+  }
+}
+
 
 .search-facet__hidden{
-  visibility: hidden;
+  display: none;
+}
+
+// HIERARCHICAL MENU
+.filter-list-content .active-filters {
+  margin-left: 0.5rem;
+}
+
+.refinement-item .refinement-filter{
+  @include btn
+  span{
+    margin-left: 1rem
+  }
 }
