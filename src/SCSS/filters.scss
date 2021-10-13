@@ -39,6 +39,7 @@
         cursor: pointer;
         border-radius: 30px;
         background-color: white;
+        font-family: $main-font;
         &:hover{
           border: 1px solid $third-color;
         }
