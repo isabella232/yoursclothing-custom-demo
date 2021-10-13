@@ -20,11 +20,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 30%;
+        width: 35%;
     }
 
     .headerList{
-        width: 80%;
+        width: 60%;
     }
 
     .header__logo{
@@ -97,7 +97,7 @@
 
     .search-wrapper {
         // border-left: 1px solid $third-color;
-        width: 30%;
+        width: 35%;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -112,10 +112,11 @@
 }
 .nav-links{
     text-decoration: none;
-    color: #B5B5B5;
+    color: #555;
     text-transform: uppercase;
     font-family: $main-font;
     cursor: pointer;
+    font-size: 0.8rem;
 }
 .nav-links:hover{
     background-color: $second-color;
@@ -130,10 +131,10 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     form {
-        width: 100%;
+        width: 80%;
         display: flex;
         position: relative;
     }
