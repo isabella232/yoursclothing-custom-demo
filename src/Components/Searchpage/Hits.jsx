@@ -9,6 +9,13 @@ import {
 } from "../../actions/visibility";
 import ProductDetails from "../ProductsDetails/ProductsDetails";
 
+// RECOMMEND
+// Recommendation
+import recommendations from "../../recommendation/recommendationdemo_recommendations.json";
+import { showRecommendations } from "../../actions/productDetail";
+
+import { index } from "../../recommendation/client";
+
 import { motion, AnimateSharedLayout } from "framer-motion";
 
 // MAIN SEARCH RESULT PAGE + FEDERATED
@@ -58,8 +65,18 @@ const Hits = ({ hits }) => {
                 dispatch(showModalPDP(true));
                 dispatch(federatedSearchVisible(false));
                 dispatch(searchVisible(true));
-                // getRecommandations(hit);
-              }}
+                const products = [];
+                if (!hit) return "";
+                const objectRecommendations = recommendations[hit.objectID];
+                if (!objectRecommendations) return "";
+                for (const [id, score] of Object.entries(objectRecommendations)) {
+                  index.getObject(id).then((hit) => {
+                    products.push(hit);
+                    console.log("PRODUCTS", hit);
+                    console.log("ARRAY", products);
+                    dispatch(showRecommendations(products));
+                  });
+              }}}
             >
               <div className="image-wrapper">
                 <svg
@@ -129,6 +146,44 @@ const HitsModal = ({ hits }) => {
   );
 };
 
+const HitsBoughtTogether = ({}) => {
+  const dispatch = useDispatch();
+  const recommendation = useSelector(
+    (state) => state.productDetail.recommendations
+  );
+
+  return (
+    <div className="hits-wrapper">
+      <ul className="hits-list hits-list-modal">
+        {recommendation.map((hit) => (
+          <li
+            key={hit.objectID}
+            className="hit-list"
+            onClick={() => {
+              dispatch(productDetail(hit));
+              dispatch(showModalPDP(true));
+              dispatch(federatedSearchVisible(false));
+              dispatch(searchVisible(true));
+            }}
+          >
+            <div className="image-wrapper">
+              <img src={hit.image_link} alt="" />
+            </div>
+            <div className="infos">
+              <h3>
+                <Highlight hit={hit} attribute="title" />
+              </h3>
+              <div className="price__wrapper">
+                <p className="price">$ {hit.price} GBP</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const ModalProduct = () => {
   const dispatch = useDispatch();
   const { showModal } = useSelector((state) => state.productDetail);
@@ -156,6 +211,8 @@ const ModalProduct = () => {
 
 const CustomHits = connectHits(Hits);
 const CustomHitsModal = connectHits(HitsModal);
+const CustomHitsTogether = connectHits(HitsBoughtTogether);
 
 
-export { CustomHits, CustomHitsModal };
+
+export { CustomHits, CustomHitsModal, CustomHitsTogether };

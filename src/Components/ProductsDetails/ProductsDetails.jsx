@@ -4,15 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import algoliasearch from "algoliasearch/lite";
 import { Configure, InstantSearch } from "react-instantsearch-dom";
 
-// RECOMMEND
-// Recommendation
-import recommendations from "../../recommendation/recommendationdemo_recommendations.json";
-import { showRecommendations } from "../../actions/productDetail";
-
-import { index } from "../../recommendation/client";
-
 // IMPORT COMPONENTS
-import { CustomHitsModal } from "../Searchpage/Hits";
+import { CustomHitsModal, CustomHitsTogether } from "../Searchpage/Hits";
 
 // IMPORT ASSETS
 // import pdp from '../../Assets/Images/pdp.png'
@@ -22,18 +15,9 @@ const ProductDetails = () => {
   const searchClient = algoliasearch(window.appID, window.key);
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productDetail);
-  const products = [];
-
-  if (!product) return "";
-  const objectRecommendations = recommendations[product.objectID];
-  if (!objectRecommendations) return "";
-  for (const [id, score] of Object.entries(objectRecommendations)) {
-    index.getObject(id).then((product) => {
-      products.push(product);
-      console.log("PRODUCTS", product)
-      // dispatch(showRecommendations(product));
-    });
-  }
+  const recommendation = useSelector(
+    (state) => state.productDetail.recommendations
+  );
 
   if (product) {
     return (
@@ -79,7 +63,7 @@ const ProductDetails = () => {
               searchClient={searchClient}
             >
               <Configure hitsPerPage={8} />
-              <CustomHitsModal />
+              {recommendation ? <CustomHitsTogether /> : <CustomHitsModal />}
             </InstantSearch>
           </div>
         </div>
