@@ -160,7 +160,7 @@ const HitsBoughtTogether = ({}) => {
                 <p>{hit.title}</p>
               </h3>
               <div className="price__wrapper">
-                <p className="price">$ {hit.price} GBP</p>
+                <p className="price">{hit.price} GBP</p>
               </div>
             </div>
           </li>

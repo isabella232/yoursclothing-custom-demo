@@ -45,7 +45,7 @@ const ProductDetails = () => {
           <div className="fake-filters">
             <div className="modal-infos">
               <h3>{product.title}</h3>
-              <p>${product.price}</p>
+              <p>{product.price}</p>
               <p>{product.description}</p>
               <p className="btn-modal">Buy me</p>
             </div>
