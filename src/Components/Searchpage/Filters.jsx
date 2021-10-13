@@ -168,7 +168,6 @@ const RangeSlider = ({
     <div className="filters-content">
       <div className="title" style={{ marginBottom: "1em" }}>
         <h3>{title}</h3>
-        <p>-</p>
       </div>
       <Rheostat
         min={min}
