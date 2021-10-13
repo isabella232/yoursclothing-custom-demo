@@ -66,17 +66,21 @@ const Hits = ({ hits }) => {
                 dispatch(federatedSearchVisible(false));
                 dispatch(searchVisible(true));
                 const products = [];
+                dispatch(showRecommendations([]));
                 if (!hit) return "";
                 const objectRecommendations = recommendations[hit.objectID];
                 if (!objectRecommendations) return "";
-                for (const [id, score] of Object.entries(objectRecommendations)) {
+                for (const [id, score] of Object.entries(
+                  objectRecommendations
+                )) {
                   index.getObject(id).then((hit) => {
                     products.push(hit);
                     console.log("PRODUCTS", hit);
                     console.log("ARRAY", products);
                     dispatch(showRecommendations(products));
                   });
-              }}}
+                }
+              }}
             >
               <div className="image-wrapper">
                 <svg
@@ -212,7 +216,5 @@ const ModalProduct = () => {
 const CustomHits = connectHits(Hits);
 const CustomHitsModal = connectHits(HitsModal);
 const CustomHitsTogether = connectHits(HitsBoughtTogether);
-
-
 
 export { CustomHits, CustomHitsModal, CustomHitsTogether };
