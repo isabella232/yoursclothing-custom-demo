@@ -154,7 +154,7 @@ const SearchResults = () => {
                                 enablePersonalization={true}
                                 query={query}
                                 hitsPerPage={200}             
-                            />)
+                            />
                             <CustomHits />
                             </div>
                           
