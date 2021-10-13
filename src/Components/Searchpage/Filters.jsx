@@ -210,7 +210,7 @@ const CustomFilters = ({ filterAnim }) => {
         // fallbackComponent={Menu}
         >
           <HierarchicalMenu
-            attribute={window.hierarchicalCategoriesAttribute} title={window.hierarchicalCategoriesAttribute}
+            attributes={window.hierarchicalCategoriesAttribute} title={window.hierarchicalCategoriesAttribute}
           />
           {window.refinementListAttributes.map((e) => (
             <GenericRefinementList attribute={e} title={e} searchable />
