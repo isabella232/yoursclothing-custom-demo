@@ -12,7 +12,7 @@ import {
     searchVisible
 } from '../../actions/visibility';
 
-const Suggestions = ({ hits }) => {
+const Suggestions = ({ hits, refine }) => {
     const dispatch = useDispatch();
     const unique = uniqBy(hits, 'ProductTypeDesc');
     return (
@@ -28,9 +28,7 @@ const Suggestions = ({ hits }) => {
                             dispatch(federatedSearchVisible(false));
                         }}
                     >
-                         <Highlight hit={hit} attribute="query" />
-                        {/* <Highlight attribute='ProductTypeDesc' hit={hit.label} /> */}
-                        {/* <p>{hit._highlightResult.ProductTypeDesc.value}</p> */}
+                        <Highlight hit={hit} attribute="query" />
                     </div>
                 );
             })}

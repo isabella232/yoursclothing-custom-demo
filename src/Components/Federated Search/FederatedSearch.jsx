@@ -15,6 +15,11 @@ import { CustomHits } from "../Searchpage/Hits";
 import { StoreQueryToLocalStorage } from "../Searchpage/SearchBox";
 import CustomSuggestions from "../Searchpage/Suggestions";
 import { CarouselHome } from "../Homepage/Carousel";
+import {
+    federatedSearchVisible,
+    searchVisible
+} from '../../actions/visibility';
+import { getQuery } from '../../actions/getQuery';
 
 const FederatedSearch = () => {
   const { persona } = useSelector((state) => state.selectedPersona);
@@ -53,6 +58,7 @@ const FederatedSearch = () => {
 };
 
 const RecentSearches = () => {
+  const dispatch = useDispatch()
   const getSearches = localStorage.getItem("recentSearches");
   const cleanSearches = JSON.parse(getSearches);
   if (cleanSearches) {
@@ -61,7 +67,11 @@ const RecentSearches = () => {
         <h3 className="federated-title">Recent Searches</h3>
         <div className="federatedSearch-recentSearches_items">
           {cleanSearches.map((search, index) => {
-            return <p key={index}>{search}</p>;
+            return <p   onClick={e => {
+                dispatch(getQuery(search));
+                dispatch(searchVisible(true));
+                dispatch(federatedSearchVisible(false));
+            }} key={index}>{search}</p>;
           })}
         </div>
       </>

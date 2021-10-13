@@ -38,22 +38,38 @@
 
 .federatedSearch-recentSearches_items {
   margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  text-transform: capitalize;
+  
+    p{
+        &:hover{
+    color: $third-color;
+    transition: 0.2s ease-in-out;
+}
+}
 }
 
 .federatedSearch-suggestions {
+    h3{
+        margin-bottom:1rem;
+    }
   .suggestions-container {
     display: flex;
     flex-direction: column;
+    
 
     .suggestion {
       border: none;
       padding: 0;
-      margin: 1rem 0;
-
-      p {
-        text-transform: lowercase;
-        font-size: 1.2rem;
-      }
+      transition: 0.2s ease-in-out;
+      text-transform: capitalize;
+      &:hover{
+        span{
+        color: $third-color;
+        transition: 0.2s ease-in-out;
+    }
+    }
     }
   }
 }
