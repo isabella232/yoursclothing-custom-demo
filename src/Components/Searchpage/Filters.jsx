@@ -18,7 +18,7 @@ import "rheostat/css/rheostat.css";
 
 // expects an attribute which is formated as a hierarchy
 // see https://www.algolia.com/doc/guides/managing-results/refine-results/faceting/#hierarchical-facets
-const HeirarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
+const HierarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
   const [category, setcategory] = useState(true);
   return (
     <div className="filters-content">
@@ -52,7 +52,7 @@ const HeirarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
               {item.label}
             </a>
             {item.items && (
-              <HierarchicalMenu
+              <HierarchicalCategoriesFilter
                 items={item.items}
                 refine={refine}
                 createURL={createURL}
@@ -66,7 +66,7 @@ const HeirarchicalCategoriesFilter = ({ title, items, refine, createURL }) => {
   );
 };
 
-const HierarchicalMenu = connectHierarchicalMenu(HeirarchicalCategoriesFilter);
+const HierarchicalMenu = connectHierarchicalMenu(HierarchicalCategoriesFilter);
 
 // expects an attribute which is an array of items
 const RefinementList = ({ title, items, refine, searchForItems }) => {
@@ -98,7 +98,9 @@ const RefinementList = ({ title, items, refine, searchForItems }) => {
       </div>
 
       <input
-        className={`${showfacet ? ("search-facet") : ("search-facet search-facet__hidden")}`}
+        className={`${
+          showfacet ? "search-facet" : "search-facet search-facet__hidden"
+        }`}
         type="search"
         onChange={(event) => searchForItems(event.currentTarget.value)}
         placeholder="Search"
@@ -210,11 +212,7 @@ const CustomFilters = ({ filterAnim }) => {
         // fallbackComponent={Menu}
         >
           <HierarchicalMenu
-            attributes={[
-              "categories[lvl0]",
-              "categories[lvl1]",
-              "categories[lvl2]",
-            ]}
+            attributes={window.hierarchicalCategoriesAttribute}
             title="Categories"
           />
           {window.refinementListAttributes.map((e) => (
