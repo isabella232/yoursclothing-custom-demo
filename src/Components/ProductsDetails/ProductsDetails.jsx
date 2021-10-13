@@ -14,6 +14,8 @@ import { CarouselTrendy, CarouselHome } from "../Homepage/Carousel";
 // import pdp from '../../Assets/Images/pdp.png'
 import { showModalPDP } from "../../actions/productDetail";
 
+import { showRecommendations } from "../../actions/productDetail";
+
 const ProductDetails = () => {
   const searchClient = algoliasearch(window.appID, window.key);
   const dispatch = useDispatch();
@@ -29,6 +31,7 @@ const ProductDetails = () => {
           className="close-modal"
           onClick={() => {
             dispatch(showModalPDP(false));
+            dispatch(showRecommendations([]));
           }}
         >
           X
