@@ -94,7 +94,6 @@ const Header = () => {
             className="nav-links"
             onClick={(e) => {
             e.preventDefault();
-            console.log("EVENT");
             dispatch(catOne(true));
             dispatch(searchVisible(false));
             dispatch(catTwo(false));

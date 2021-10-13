@@ -31,24 +31,7 @@ const Hits = ({ hits }) => {
       },
     },
   };
-  //   const {query} = useSelector(state => state.getQuery)
-  //   console.log(hits)
-  //   console.log(hits.length)
-  //   if(hits.length === 0){
-  //       console.log('couc')
-  //       return(
-  //       <div>
-  //           <p> Sorry there is nothing there for {query}</p>
-  //           <p>You can check our last trends here</p>
-  //           <div className="carousel_noResult">
-  //             <Index indexName={window.index} indexId="Halloween">
-  //             <Configure query={query}/>
-  //                 <CarouselHomeHalloween/>
-  //             </Index>
-  //           </div>
-  //       </div>
-  // )
-  //   }
+
   return (
     <AnimateSharedLayout>
       <div className="hits-wrapper">
@@ -74,8 +57,6 @@ const Hits = ({ hits }) => {
                 )) {
                   index.getObject(id).then((hit) => {
                     products.push(hit);
-                    console.log("PRODUCTS", hit);
-                    console.log("ARRAY", products);
                     dispatch(showRecommendations(products));
                   });
                 }
