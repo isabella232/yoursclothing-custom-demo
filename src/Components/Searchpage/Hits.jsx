@@ -171,7 +171,7 @@ const HitsBoughtTogether = ({}) => {
             </div>
             <div className="infos">
               <h3>
-                <Highlight hit={hit} attribute="title" />
+                <p>{hit.title}</p>
               </h3>
               <div className="price__wrapper">
                 <p className="price">$ {hit.price} GBP</p>
