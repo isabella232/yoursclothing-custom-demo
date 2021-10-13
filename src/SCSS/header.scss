@@ -117,12 +117,11 @@
     font-family: $main-font;
     cursor: pointer;
     font-size: 0.8rem;
+    transition: 0.2s ease-in-out;
 }
 .nav-links:hover{
-    background-color: $second-color;
-    border-radius: 8px;
-    padding: 0.2em 0.1em;
-    color: $sixth-color;
+    color: $third-color;
+    transition: 0.2s ease-in-out;
 }
 
 // SEARCHBOX
