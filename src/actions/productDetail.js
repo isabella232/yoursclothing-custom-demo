@@ -11,3 +11,10 @@ export const showModalPDP = (value) => (dispatch) => {
         payload: value
     })
 }
+
+export const showRecommendations = (value) => (dispatch) => {
+    dispatch({
+        type: 'SHOW_RECOMMENDATION',
+        payload: value
+    })
+}
