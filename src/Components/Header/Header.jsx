@@ -63,21 +63,7 @@ const Header = () => {
           }}
         >
           <CustomSearchBox />
-          <VoiceSearch searchAsYouSpeak={true} language={"en-US"} />
         </div>
-        <a
-          className="nav-links"
-          onClick={(e) => {
-            e.preventDefault();
-            console.log("EVENT");
-            dispatch(catOne(true));
-            dispatch(searchVisible(false));
-            dispatch(catTwo(false));
-            dispatch(federatedSearchVisible(false));
-          }}
-        >
-          ACCESSORIES
-        </a>
         <div className="header__logo">
           <img
             src={logo}
@@ -104,6 +90,19 @@ const Header = () => {
             dispatch(getQuery(""));
           }}
         >
+         <a
+            className="nav-links"
+            onClick={(e) => {
+            e.preventDefault();
+            console.log("EVENT");
+            dispatch(catOne(true));
+            dispatch(searchVisible(false));
+            dispatch(catTwo(false));
+            dispatch(federatedSearchVisible(false));
+            }}
+          >
+            ACCESSORIES
+          </a>
           <img className="headerList" src={headerList} alt="headerList" />
           <SelectPersona />
 
