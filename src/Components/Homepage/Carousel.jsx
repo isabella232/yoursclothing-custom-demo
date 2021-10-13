@@ -34,7 +34,7 @@ export const CarouselTrendy = () => {
     <Index
         indexName={window.index}    
         indexId= "trendy_carousel">
-        <Configure hitsPerPage={8} ruleContexts='trendy' userToken={persona} />
+        <Configure hitsPerPage={200} ruleContexts='trendy' userToken={persona} />
         <CustomHitsModal />
     </Index> );
 }

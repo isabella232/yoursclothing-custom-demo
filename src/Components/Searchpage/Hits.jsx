@@ -35,12 +35,12 @@ const Hits = ({ hits }) => {
   };
   let uniq = uniqBy(hits, 'model_number')
   console.log('UNIQUE', uniq)
-
+console.log(hits)
   return (
     <AnimateSharedLayout>
       <div className="hits-wrapper">
         <ul className="hits-list">
-          {uniq.map((hit) => (
+          {uniq.slice(0,17).map((hit) => (
             <motion.li
               key={hit.objectID}
               variants={listItem}
@@ -106,7 +106,7 @@ const HitsModal = ({ hits }) => {
   return (
     <div className="hits-wrapper">
       <ul className="hits-list hits-list-modal">
-        {uniq.map((hit) => (
+        {uniq.slice(0,7).map((hit) => (
           <li
             key={hit.objectID}
             className="hit-list"

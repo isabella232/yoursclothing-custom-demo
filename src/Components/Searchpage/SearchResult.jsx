@@ -101,7 +101,7 @@ const SearchResults = () => {
                    
                  
                     <div className="searchPanel-results">
-                    {catOne ?    (<Configure
+                    {/* {catOne ?    (<Configure
                                 userToken={persona}
                                 filters="categories.lvl1:'Clothing & Accessories > Accessories'"
                                 enablePersonalization={true}
@@ -112,7 +112,7 @@ const SearchResults = () => {
                                 filters="categorylvl3:'Vision Care'"
                                 enablePersonalization={true}
                                 hitsPerPage={21}
-                            />) : ('')}
+                            />) : ('')} */}
                     {/* {catMens ? (  <Configure
                                 userToken={persona}
                                 filters="DepartmentDesc:'Mens'"
@@ -126,12 +126,13 @@ const SearchResults = () => {
                                 hitsPerPage={21}
                             />) : ('')} */}
 
-                    {searchVisible ? ( <Configure
+                    {/* {searchVisible ? ( <Configure
                                 userToken={persona}
                                 enablePersonalization={true}
                                 hitsPerPage={21}
                                 query={query}
-                            />): ('')}
+                              
+                            />): ('')} */}
                     
                             <FilterBtn
                                 filterAnim={filterAnim}
@@ -148,6 +149,12 @@ const SearchResults = () => {
                                 transformItems={items =>
                                 items.filter(item => item.attribute !== 'price')
                                 }/>
+                        <Configure
+                                userToken={persona}
+                                enablePersonalization={true}
+                                query={query}
+                                hitsPerPage={200}             
+                            />)
                             <CustomHits />
                             </div>
                           
