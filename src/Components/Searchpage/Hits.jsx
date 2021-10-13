@@ -9,6 +9,8 @@ import {
 } from "../../actions/visibility";
 import ProductDetails from "../ProductsDetails/ProductsDetails";
 
+import uniqBy from 'lodash.uniqby';
+
 // RECOMMEND
 // Recommendation
 import recommendations from "../../recommendation/recommendationdemo_recommendations.json";
@@ -31,12 +33,14 @@ const Hits = ({ hits }) => {
       },
     },
   };
+  let uniq = uniqBy(hits, 'model_number')
+  console.log('UNIQUE', uniq)
 
   return (
     <AnimateSharedLayout>
       <div className="hits-wrapper">
         <ul className="hits-list">
-          {hits.map((hit) => (
+          {uniq.map((hit) => (
             <motion.li
               key={hit.objectID}
               variants={listItem}
@@ -97,11 +101,12 @@ const Hits = ({ hits }) => {
 // PDP
 const HitsModal = ({ hits }) => {
   const dispatch = useDispatch();
-
+  let uniq = uniqBy(hits, 'model_number')
+  console.log('UNIQUE', uniq)
   return (
     <div className="hits-wrapper">
       <ul className="hits-list hits-list-modal">
-        {hits.map((hit) => (
+        {uniq.map((hit) => (
           <li
             key={hit.objectID}
             className="hit-list"
