@@ -282,7 +282,7 @@
 }
 
 .refinement-item .refinement-filter{
-  @include btn
+  @include btn;
   span{
     margin-left: 1rem
   }
